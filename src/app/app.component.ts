@@ -6,35 +6,38 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name = 'Angular ' + VERSION.major;
-  n1: number = 0;
-  n2: number = 0;
-  resultado: number = 0;
-  op: string = '';
+  datos: personas[] = [
+    {
+      id: 1,
+      nombre: 'Ivan Alejandro',
+      apellido: 'Lopez Martinez',
+      sexo: 'Hombre',
+    },
+    { id: 2, nombre: 'Jose Armando', apellido: 'Perez Lugo', sexo: 'Hombre' },
+    {
+      id: 3,
+      nombre: 'Andrea Fernanda',
+      apellido: 'Perez Estrada',
+      sexo: 'Mujer',
+    },
+    {
+      id: 4,
+      nombre: 'Manuel Alejandro',
+      apellido: 'Dlorez Ramirez',
+      sexo: 'Hombre',
+    },
+    {
+      id: 5,
+      nombre: 'Luis Alejandro',
+      apellido: 'Lopez Muñoz',
+      sexo: 'Hombre',
+    },
+  ];
+}
 
-  ejecutar() {
-    this.op = this.op.trim();
-
-    switch (this.op) {
-      case '+':
-        this.resultado = this.n1 + this.n2;
-        break;
-      case '-':
-        this.resultado = this.n1 - this.n2;
-        break;
-      case '*':
-        this.resultado = this.n1 * this.n2;
-        break;
-      default:
-        this.resultado = 0;
-        alert('error en el operador');
-    }
-  }
-
-  limpiar() {
-    this.n1 = 0;
-    this.n2 = 0;
-    this.op = '';
-    this.resultado = 0;
-  }
+interface personas {
+  id: number;
+  nombre: string;
+  apellido: string;
+  sexo: string;
 }
